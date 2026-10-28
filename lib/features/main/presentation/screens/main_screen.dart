@@ -9,6 +9,8 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: SizedBox(
@@ -22,9 +24,9 @@ class MainScreen extends StatelessWidget {
           ),
           type: BottomNavigationBarType.fixed,
           elevation: 0,
-          backgroundColor: Color(0xFFF8FAFC),
-          selectedItemColor: Color(0xFF2563EB),
-          unselectedItemColor: Color(0xFF0F172A).withOpacity(0.4),
+          backgroundColor: theme.scaffoldBackgroundColor,
+          selectedItemColor: theme.colorScheme.primary,
+          unselectedItemColor: theme.colorScheme.onSurface.withOpacity(0.4),
           selectedFontSize: 12,
           unselectedFontSize: 12,
           selectedLabelStyle: const TextStyle(
