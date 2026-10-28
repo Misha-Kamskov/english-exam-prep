@@ -6,9 +6,7 @@ class PracticeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Practice'),
-      ),
+      backgroundColor: Color(0xFFF8FAFC),
       body: const Center(
         child: Text('Practice Screen'),
       ),
