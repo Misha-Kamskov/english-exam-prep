@@ -5,11 +5,9 @@ class PracticeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFF8FAFC),
-      body: const Center(
-        child: Text('Practice Screen'),
-      ),
+    final theme = Theme.of(context);
+    return ColoredBox(
+      color: theme.scaffoldBackgroundColor,
     );
   }
 }

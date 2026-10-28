@@ -1,7 +1,9 @@
 import 'package:english_exam_prep/features/profile/presentation/widgets/group_header.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../app/theme/theme_notifier.dart';
 import '../widgets/settings_group.dart';
 import '../widgets/settings_tile.dart';
 
@@ -10,8 +12,10 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return ColoredBox(
-      color: Color(0xFFF8FAFC),
+      color: theme.scaffoldBackgroundColor,
       child: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
@@ -26,8 +30,10 @@ class ProfileScreen extends StatelessWidget {
                     icon: LucideIcons.moon,
                     label: 'Темна тема',
                     isToggle: true,
-                    switchValue: true,
-                    onChanged: (isDark) {},
+                    switchValue: context.watch<ThemeNotifier>().themeMode == ThemeMode.dark,
+                    onChanged: (isDark) {
+                      context.read<ThemeNotifier>().setThemeMode(isDark ? ThemeMode.dark : ThemeMode.light);
+                    },
                     showDivider: true,
                   ),
                 ],
