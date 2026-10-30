@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../app/theme/theme_notifier.dart';
+import '../../../../core/theme/theme_notifier.dart';
 
 
 class ProfileScreen extends StatelessWidget {
@@ -27,7 +27,6 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Page title
               Text(
                 'Профіль',
                 style: theme.textTheme.headlineSmall?.copyWith(
