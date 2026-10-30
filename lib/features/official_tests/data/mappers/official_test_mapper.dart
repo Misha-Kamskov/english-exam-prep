@@ -3,9 +3,7 @@ import '../../domain/entities/official_test.dart';
 import '../dtos/official_test_dto.dart';
 
 class OfficialTestMapper {
-  const OfficialTestMapper();
-
-  OfficialTest toEntity(OfficialTestDto dto) {
+  static OfficialTest toEntity(OfficialTestDto dto) {
     return OfficialTest(
       id: dto.id,
       title: dto.title,
@@ -18,7 +16,7 @@ class OfficialTestMapper {
     );
   }
 
-  OfficialTestDto toDto(OfficialTest entity) {
+  static OfficialTestDto toDto(OfficialTest entity) {
     return OfficialTestDto(
       id: entity.id,
       title: entity.title,

@@ -1,16 +1,6 @@
+import 'package:english_exam_prep/features/practice/presentation/models/practice_mode.dart';
 import 'package:flutter/material.dart';
 
-class PracticeMode {
-  const PracticeMode({
-    required this.title,
-    required this.subtitle,
-    required this.icon,
-  });
-
-  final String title;
-  final String subtitle;
-  final IconData icon;
-}
 
 class PracticeModeCard extends StatelessWidget {
   const PracticeModeCard({
@@ -19,7 +9,7 @@ class PracticeModeCard extends StatelessWidget {
     required this.onTap,
   });
 
-  final PracticeMode mode;
+  final PracticeModeType mode;
   final VoidCallback onTap;
 
   @override

@@ -1,12 +1,10 @@
 
-import '../../domain/entities/official_scoring_scale.dart';
-import '../dtos/official_scoring_scale_dto.dart';
+import '../../domain/entities/official_test_score_scale.dart';
+import '../dtos/official_test_score_scale_dto.dart';
 
 class OfficialTestScaleMapper {
-  const OfficialTestScaleMapper();
-
-  OfficialTestScale toEntity(OfficialTestScaleDto dto) {
-    return OfficialTestScale(
+  static OfficialTestScoreScale toEntity(OfficialTestScoreScaleDto dto) {
+    return OfficialTestScoreScale(
       id: dto.id,
       officialTestId: dto.officialTestId,
       rawScore: dto.rawScore,
@@ -15,8 +13,8 @@ class OfficialTestScaleMapper {
     );
   }
 
-  OfficialTestScaleDto toDto(OfficialTestScale entity) {
-    return OfficialTestScaleDto(
+  static OfficialTestScoreScaleDto toDto(OfficialTestScoreScale entity) {
+    return OfficialTestScoreScaleDto(
       id: entity.id,
       officialTestId: entity.officialTestId,
       rawScore: entity.rawScore,

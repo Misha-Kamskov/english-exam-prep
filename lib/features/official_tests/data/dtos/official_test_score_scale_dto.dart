@@ -1,14 +1,12 @@
 
-import '../../domain/entities/official_scoring_scale.dart';
-
-class OfficialTestScaleDto {
+class OfficialTestScoreScaleDto {
   final String id;
   final String officialTestId;
   final int rawScore;
   final int scaledScore;
   final DateTime createdAt;
 
-  const OfficialTestScaleDto({
+  const OfficialTestScoreScaleDto({
     required this.id,
     required this.officialTestId,
     required this.rawScore,
@@ -16,8 +14,8 @@ class OfficialTestScaleDto {
     required this.createdAt,
   });
 
-  factory OfficialTestScaleDto.fromJson(Map<String, dynamic> json) {
-    return OfficialTestScaleDto(
+  factory OfficialTestScoreScaleDto.fromJson(Map<String, dynamic> json) {
+    return OfficialTestScoreScaleDto(
       id: json['id'] as String,
       officialTestId: json['official_test_id'] as String,
       rawScore: json['raw_score'] as int,
@@ -34,25 +32,5 @@ class OfficialTestScaleDto {
       'scaled_score': scaledScore,
       'created_at': createdAt.toIso8601String(),
     };
-  }
-
-  OfficialTestScale toEntity() {
-    return OfficialTestScale(
-      id: id,
-      officialTestId: officialTestId,
-      rawScore: rawScore,
-      scaledScore: scaledScore,
-      createdAt: createdAt,
-    );
-  }
-
-  factory OfficialTestScaleDto.fromEntity(OfficialTestScale entity) {
-    return OfficialTestScaleDto(
-      id: entity.id,
-      officialTestId: entity.officialTestId,
-      rawScore: entity.rawScore,
-      scaledScore: entity.scaledScore,
-      createdAt: entity.createdAt,
-    );
   }
 }

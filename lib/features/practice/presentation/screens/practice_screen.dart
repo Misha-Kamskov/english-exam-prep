@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
+import '../models/practice_mode.dart';
 import '../widgets/practice_mode_card.dart';
 
 class PracticeScreen extends StatelessWidget {
   const PracticeScreen({super.key});
 
+  void _handleModeTap(BuildContext context, PracticeModeType mode) {
+    switch (mode) {
+      case PracticeModeType.officialTests:
+        context.push('/official_tests');
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
-
-    final modes = [
-      PracticeMode(
-        title: 'Офіційні тести',
-        subtitle: 'Реальні ЗНО/НМТ',
-        icon: LucideIcons.archive,
-      ),
-    ];
+    final modes = PracticeModeType.values;
 
     return ColoredBox(
       color: theme.scaffoldBackgroundColor,
@@ -49,13 +52,11 @@ class PracticeScreen extends StatelessWidget {
                   childAspectRatio: 1.3,
                 ),
                 itemBuilder: (context, index) {
-                  final mode = modes[index];
+                  final modeType = modes[index];
 
                   return PracticeModeCard(
-                    mode: mode,
-                    onTap: () {
-                      // Поки що функціонал не реалізований.
-                    },
+                    mode: modeType,
+                    onTap: () => _handleModeTap(context, modeType),
                   );
                 },
               ),

@@ -1,5 +1,4 @@
 
-import '../../domain/entities/official_test.dart';
 
 class OfficialTestDto {
   final String id;
@@ -48,29 +47,4 @@ class OfficialTestDto {
     };
   }
 
-  OfficialTest toEntity() {
-    return OfficialTest(
-      id: id,
-      title: title,
-      description: description,
-      year: year,
-      durationMinutes: durationMinutes,
-      isPublished: isPublished,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  factory OfficialTestDto.fromEntity(OfficialTest entity) {
-    return OfficialTestDto(
-      id: entity.id,
-      title: entity.title,
-      description: entity.description,
-      year: entity.year,
-      durationMinutes: entity.durationMinutes,
-      isPublished: entity.isPublished,
-      createdAt: entity.createdAt,
-      updatedAt: entity.updatedAt,
-    );
-  }
 }
