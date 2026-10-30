@@ -1,21 +1,12 @@
+import 'package:english_exam_prep/core/app_initializer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-
-import 'core/di/injection.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_notifier.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Supabase.initialize(
-    url: 'https://zzbalqbyeewidyftuglq.supabase.co',
-    publishableKey: 'sb_publishable_wJl6jmTTLREC3uOmqSBLKQ_7qc6cd6h',
-  );
-  await configureDependencies();
-
+  await AppInitializer.init();
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeNotifier(),
